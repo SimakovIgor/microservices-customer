@@ -6,7 +6,6 @@
 
     <artifactId>microservices-customer</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <name>[Simakov] Microservices Customer</name>
 
     <parent>
@@ -28,6 +27,10 @@
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
             <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.simakov</groupId>
+            <artifactId>jpa</artifactId>
         </dependency>
     </dependencies>
 
