@@ -1,8 +1,8 @@
 package ru.simakov.service;
 
 import org.springframework.stereotype.Service;
-import ru.simakov.model.Customer;
-import ru.simakov.model.CustomerRegistrationRq;
+import ru.simakov.model.entity.Customer;
+import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.repository.CustomerRepository;
 
 @Service

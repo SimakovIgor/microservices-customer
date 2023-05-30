@@ -1,4 +1,4 @@
-package ru.simakov.model;
+package ru.simakov.model.dto;
 
 import lombok.Builder;
 import lombok.Data;
