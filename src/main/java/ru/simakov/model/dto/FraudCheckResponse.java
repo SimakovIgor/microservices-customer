@@ -9,8 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class CustomerRegistrationRq {
-    private String firstName;
-    private String lastName;
-    private String email;
+public class FraudCheckResponse {
+    private Long id;
+    private Boolean isFraudster;
 }
