@@ -24,7 +24,7 @@ public class FraudClient {
         var requestEntity = new HttpEntity<>(headers);
 
         var responseEntity = restTemplate.exchange(
-                "http://localhost:8081/api/v1/fraud-check",
+                "http://FRAUD-SERVICE/api/v1/fraud-check",
                 HttpMethod.GET,
                 requestEntity,
                 FraudCheckResponse.class);
