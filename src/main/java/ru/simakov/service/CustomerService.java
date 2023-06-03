@@ -2,7 +2,8 @@ package ru.simakov.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.simakov.client.FraudClient;
+import ru.simakov.clients.fraud.FraudCheckResponse;
+import ru.simakov.clients.fraud.FraudClient;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.model.entity.Customer;
 import ru.simakov.repository.CustomerRepository;
@@ -11,7 +12,7 @@ import ru.simakov.repository.CustomerRepository;
 @RequiredArgsConstructor
 public class CustomerService {
     private final CustomerRepository customerRepository;
-        private final FraudClient fraudClient;
+    private final FraudClient fraudClient;
 
     public void registerCustomer(CustomerRegistrationRq customerRegistrationRq) {
         Customer customer = Customer.builder()
