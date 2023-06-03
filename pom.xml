@@ -44,6 +44,10 @@
             <groupId>ru.simakov</groupId>
             <artifactId>fraud</artifactId>
         </dependency>
+        <dependency>
+            <groupId>ru.simakov</groupId>
+            <artifactId>notification</artifactId>
+        </dependency>
     </dependencies>
 
 </project>
