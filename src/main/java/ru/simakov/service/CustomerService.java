@@ -33,7 +33,7 @@ public class CustomerService {
                 .build();
     }
 
-    public void registerCustomer(CustomerRegistrationRq customerRegistrationRq) {
+    public Customer registerCustomer(CustomerRegistrationRq customerRegistrationRq) {
         var customer = mapCustomer(customerRegistrationRq);
         customerRepository.save(customer);
 
@@ -43,5 +43,6 @@ public class CustomerService {
         }
 
         notificationClient.sendNotification(getNotificationRequest(customer));
+        return customer;
     }
 }
