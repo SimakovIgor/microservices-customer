@@ -29,6 +29,16 @@ services:
       - postgres
     restart: unless-stopped
 
+#  jaeger:
+#    container_name: jaeger
+#    image: jaegertracing/all-in-one:latest
+#    environment:
+#      COLLECTOR_OTLP_ENABLED: true
+#      COLLECTOR_ZIPKIN_HOST_PORT: 9411
+#    ports:
+#      - "16686:16686"
+#      - "14250:14250"
+
 networks:
   postgres:
     driver: bridge
