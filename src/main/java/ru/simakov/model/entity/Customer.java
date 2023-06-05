@@ -9,6 +9,7 @@ import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
 import ru.simakov.BaseEntity;
+import ru.simakov.BaseEntityCU;
 
 @Getter
 @Setter
@@ -18,7 +19,7 @@ import ru.simakov.BaseEntity;
 @Entity
 @ToString(callSuper = true)
 @Accessors(chain = true)
-public class Customer extends BaseEntity {
+public class Customer extends BaseEntityCU {
     private String firstName;
     private String lastName;
     private String email;

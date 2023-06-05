@@ -6,6 +6,7 @@
 2. Service Registry and Discovery
 3. Distributed Tracing using Micrometer, OpenTelemetry, And Jaeger
 4. Open Feign Client
+5. Flyway migration
 
 ## Articles for read:
 
