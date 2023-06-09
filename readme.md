@@ -12,3 +12,8 @@
 
 Enable Distributed Tracing using Micrometer, OpenTelemetry, And Jaeger
 https://amithkumarg.medium.com/distributed-tracing-with-spring-boot-micrometer-opentelemetry-and-jaeger-fafd5c0bd282
+
+PgAdmin - http://localhost:5050/browser/ 
+Eureka - http://localhost:8761/
+Jaeger - http://localhost:16686/search
+RabbitMQ - http://localhost:15672/#/ 
