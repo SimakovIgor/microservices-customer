@@ -51,6 +51,41 @@ services:
       - 14268:14268
       - 14269:14269
       - 9411:9411
+    networks:
+      - spring
+
+  eureka-server:
+    image: simakoff/microservices-eureka-server:latest
+    container_name: eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - spring
+    depends_on:
+      - jaeger
+
+  apigw:
+    image: simakoff/microservices-apigw:latest
+    container_name: apigw
+    ports:
+      - "8083:8083"
+    networks:
+      - spring
+    depends_on:
+      - jaeger
+      - eureka-server
+
+networks:
+  postgres:
+    driver: bridge
+  spring:
+    driver: bridge
+
+volumes:
+  postgres:
+  pgadmin:
+
+
 
 #  docker run -d --name jaeger \
 #  -e COLLECTOR_ZIPKIN_HOST_PORT=:9411 \
@@ -66,11 +101,3 @@ services:
 #  -p 14269:14269 \
 #  -p 9411:9411 \
 #  jaegertracing/all-in-one:latest
-
-networks:
-  postgres:
-    driver: bridge
-
-volumes:
-  postgres:
-  pgadmin:
