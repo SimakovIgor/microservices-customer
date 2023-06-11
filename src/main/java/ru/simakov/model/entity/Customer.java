@@ -8,7 +8,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.Accessors;
 import lombok.experimental.SuperBuilder;
-import ru.simakov.BaseEntity;
 import ru.simakov.BaseEntityCU;
 
 @Getter
