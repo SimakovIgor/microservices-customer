@@ -17,3 +17,9 @@ PgAdmin - http://localhost:5050/browser/
 Eureka - http://localhost:8761/
 Jaeger - http://localhost:16686/search
 RabbitMQ - http://localhost:15672/#/ 
+
+TODO:
+1. Integration test test containers Postgres with flyway
+2. Integration test with test containers RabbitMQ
+3. Fix open telemetry run in docker change port
+4. 
