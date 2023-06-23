@@ -7,8 +7,9 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import ru.simakov.clients.fraud.FraudClient;
-import ru.simakov.controller.testcontainer.PostgreSQLInitializer;
 import ru.simakov.starter.amqp.config.RabbitMQMessageProducer;
+import ru.simakov.starter.testing.base.DatabaseAwareTestBase;
+import ru.simakov.starter.testing.initializer.PostgreSQLInitializer;
 
 import java.util.Set;
 
