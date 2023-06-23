@@ -7,23 +7,25 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import ru.simakov.clients.fraud.FraudClient;
-import ru.simakov.starter.amqp.config.RabbitMQMessageProducer;
 import ru.simakov.starter.testing.base.DatabaseAwareTestBase;
 import ru.simakov.starter.testing.initializer.PostgreSQLInitializer;
+import ru.simakov.starter.testing.initializer.RabbitMQInitializer;
 
 import java.util.Set;
 
 @ActiveProfiles("test")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableAutoConfiguration
-@ContextConfiguration(initializers = PostgreSQLInitializer.class)
+@ContextConfiguration(initializers = {
+        PostgreSQLInitializer.class,
+        RabbitMQInitializer.class
+})
 public abstract class IntegrationTestBase extends DatabaseAwareTestBase {
-    @MockBean
-    protected RabbitMQMessageProducer rabbitMQMessageProducer;
     @MockBean
     protected FraudClient fraudClient;
     @LocalServerPort
     protected int localPort;
+
     @Override
     protected String getSchema() {
         return "public";

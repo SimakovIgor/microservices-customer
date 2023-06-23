@@ -1,7 +1,6 @@
 spring:
   flyway:
     enabled: true
-#    schemas: pub
 
 logging.level:
   org.springframework.orm.jpa.JpaTransactionManager: DEBUG
