@@ -18,7 +18,7 @@ public class CustomerService {
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     private final RabbitMQProperties rabbitMqProperties;
 
-    private static Customer mapCustomer(CustomerRegistrationRq customerRegistrationRq) {
+    private static Customer mapCustomer(final CustomerRegistrationRq customerRegistrationRq) {
         return Customer.builder()
                 .firstName(customerRegistrationRq.getFirstName())
                 .lastName(customerRegistrationRq.getLastName())
@@ -26,7 +26,7 @@ public class CustomerService {
                 .build();
     }
 
-    private static NotificationRequest getNotificationRequest(Customer customer) {
+    private static NotificationRequest getNotificationRequest(final Customer customer) {
         return NotificationRequest.builder()
                 .message("Welcome, %s %s!!".formatted(customer.getEmail(), customer.getFirstName()))
                 .toCustomerId(customer.getId())
@@ -35,7 +35,7 @@ public class CustomerService {
                 .build();
     }
 
-    public Customer registerCustomer(CustomerRegistrationRq customerRegistrationRq) {
+    public Customer registerCustomer(final CustomerRegistrationRq customerRegistrationRq) {
         var customer = mapCustomer(customerRegistrationRq);
         customerRepository.save(customer);
 

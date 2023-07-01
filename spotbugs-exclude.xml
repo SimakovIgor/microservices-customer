@@ -17,4 +17,7 @@
     <Match>
         <Bug pattern="EQ_DOESNT_OVERRIDE_EQUALS"/>
     </Match>
+    <Match>
+        <Bug pattern="FinalParameters"/>
+    </Match>
 </FindBugsFilter>
