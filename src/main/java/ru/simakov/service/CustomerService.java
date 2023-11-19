@@ -20,19 +20,19 @@ public class CustomerService {
 
     private static Customer mapCustomer(final CustomerRegistrationRq customerRegistrationRq) {
         return Customer.builder()
-                .firstName(customerRegistrationRq.getFirstName())
-                .lastName(customerRegistrationRq.getLastName())
-                .email(customerRegistrationRq.getEmail())
-                .build();
+            .firstName(customerRegistrationRq.getFirstName())
+            .lastName(customerRegistrationRq.getLastName())
+            .email(customerRegistrationRq.getEmail())
+            .build();
     }
 
     private static NotificationRequest getNotificationRequest(final Customer customer) {
         return NotificationRequest.builder()
-                .message("Welcome, %s %s!!".formatted(customer.getEmail(), customer.getFirstName()))
-                .toCustomerId(customer.getId())
-                .toCustomerEmail(customer.getEmail())
-                .sender("Customer microservice")
-                .build();
+            .message("Welcome, %s %s!!".formatted(customer.getEmail(), customer.getFirstName()))
+            .toCustomerId(customer.getId())
+            .toCustomerEmail(customer.getEmail())
+            .sender("Customer microservice")
+            .build();
     }
 
     public Customer registerCustomer(final CustomerRegistrationRq customerRegistrationRq) {
@@ -45,7 +45,7 @@ public class CustomerService {
         }
 
         rabbitMQMessageProducer.publish(getNotificationRequest(customer),
-                rabbitMqProperties.getInternalExchange(), rabbitMqProperties.getInternalNotificationRoutingKey());
+            rabbitMqProperties.getInternalExchange(), rabbitMqProperties.getInternalNotificationRoutingKey());
         return customer;
     }
 }

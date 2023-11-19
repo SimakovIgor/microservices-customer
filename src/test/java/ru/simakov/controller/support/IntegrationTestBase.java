@@ -19,8 +19,8 @@ import java.util.Set;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @EnableAutoConfiguration
 @ContextConfiguration(initializers = {
-        PostgreSQLInitializer.class,
-        RabbitMQInitializer.class
+    PostgreSQLInitializer.class,
+    RabbitMQInitializer.class
 })
 public abstract class IntegrationTestBase extends DatabaseAwareTestBase {
     @MockBean
