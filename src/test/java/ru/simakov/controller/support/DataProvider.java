@@ -1,7 +1,6 @@
 package ru.simakov.controller.support;
 
 import lombok.experimental.UtilityClass;
-import ru.simakov.clients.fraud.FraudCheckResponse;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 
 @UtilityClass
@@ -13,8 +12,4 @@ public class DataProvider {
             .lastName("lastName");
     }
 
-    public static FraudCheckResponse.FraudCheckResponseBuilder prepareFraudCheckResponse() {
-        return FraudCheckResponse.builder()
-            .isFraudster(false);
-    }
 }

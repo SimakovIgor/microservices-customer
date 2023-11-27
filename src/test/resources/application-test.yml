@@ -8,3 +8,10 @@ logging.level:
 eureka:
   client:
     enabled: false
+stubrunner:
+  stubs-mode: LOCAL
+
+microservices:
+  clients:
+    fraud:
+      url: http://localhost:8081

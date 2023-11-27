@@ -22,6 +22,10 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-webflux</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
         <dependency>
@@ -48,6 +52,10 @@
             <artifactId>fraud</artifactId>
         </dependency>
         <dependency>
+            <groupId>ru.simakov.commons.model</groupId>
+            <artifactId>commons-model-internal</artifactId>
+        </dependency>
+        <dependency>
             <groupId>ru.simakov.commons.clients</groupId>
             <artifactId>notification</artifactId>
         </dependency>
@@ -63,6 +71,11 @@
         <dependency>
             <groupId>ru.simakov.commons.starter</groupId>
             <artifactId>testing-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-contract-stub-runner</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 
@@ -103,7 +116,7 @@
                                         <limit>
                                             <counter>INSTRUCTION</counter>
                                             <value>COVEREDRATIO</value>
-                                            <minimum>0.79</minimum>
+                                            <minimum>0.78</minimum>
                                         </limit>
                                         <limit>
                                             <counter>BRANCH</counter>

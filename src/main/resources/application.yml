@@ -43,3 +43,8 @@ rabbitmq:
 logging:
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
+
+microservices:
+  clients:
+    fraud:
+      url: http://localhost:8080/

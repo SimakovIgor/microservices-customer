@@ -2,8 +2,9 @@ package ru.simakov.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.simakov.clients.fraud.FraudClient;
+import ru.simakov.clients.fraud.FraudWebClient;
 import ru.simakov.clients.notification.NotificationRequest;
+import ru.simakov.commons.model.internal.fraud.FraudCheckResponse;
 import ru.simakov.config.RabbitMQProperties;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.model.entity.Customer;
@@ -14,7 +15,7 @@ import ru.simakov.starter.amqp.config.RabbitMQMessageProducer;
 @RequiredArgsConstructor
 public class CustomerService {
     private final CustomerRepository customerRepository;
-    private final FraudClient fraudClient;
+    private final FraudWebClient fraudWebClient;
     private final RabbitMQMessageProducer rabbitMQMessageProducer;
     private final RabbitMQProperties rabbitMqProperties;
 
@@ -39,8 +40,8 @@ public class CustomerService {
         var customer = mapCustomer(customerRegistrationRq);
         customerRepository.save(customer);
 
-        var fraudCheckResponse = fraudClient.getIsFraudster(customer.getId());
-        if (Boolean.TRUE.equals(fraudCheckResponse.getIsFraudster())) {
+        final FraudCheckResponse fraudCheckResponse = fraudWebClient.checkFraudRisk(customer.getId());
+        if (Boolean.TRUE.equals(fraudCheckResponse.getIsFraud())) {
             throw new IllegalStateException("Customer %s is fraudster".formatted(customer.getId()));
         }
 

@@ -3,11 +3,12 @@ package ru.simakov.controller.support;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.cloud.contract.stubrunner.spring.AutoConfigureStubRunner;
+import org.springframework.cloud.contract.stubrunner.spring.StubRunnerProperties;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
-import ru.simakov.clients.fraud.FraudClient;
+import org.springframework.test.web.reactive.server.WebTestClient;
 import ru.simakov.repository.CustomerRepository;
 import ru.simakov.starter.testing.base.DatabaseAwareTestBase;
 import ru.simakov.starter.testing.initializer.PostgreSQLInitializer;
@@ -22,9 +23,13 @@ import java.util.Set;
     PostgreSQLInitializer.class,
     RabbitMQInitializer.class
 })
+@AutoConfigureStubRunner(
+    ids = "ru.simakov.microservices:microservices-fraud:+:8081",
+    stubsMode = StubRunnerProperties.StubsMode.LOCAL
+)
 public abstract class IntegrationTestBase extends DatabaseAwareTestBase {
-    @MockBean
-    protected FraudClient fraudClient;
+    @Autowired
+    protected WebTestClient webTestClient;
     @Autowired
     protected CustomerRepository customerRepository;
     @LocalServerPort
