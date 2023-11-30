@@ -4,12 +4,11 @@ spring:
 
 logging.level:
   org.springframework.orm.jpa.JpaTransactionManager: DEBUG
+  org.springframework.cloud.contract: DEBUG
 
 eureka:
   client:
     enabled: false
-stubrunner:
-  stubs-mode: LOCAL
 
 microservices:
   clients:

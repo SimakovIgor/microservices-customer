@@ -2,14 +2,13 @@ package ru.simakov.controller;
 
 import org.junit.jupiter.api.Test;
 import ru.simakov.commons.model.internal.fraud.FraudCheckResponse;
-import ru.simakov.controller.support.DataProvider;
-import ru.simakov.controller.support.IntegrationTestBase;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.model.entity.Customer;
+import ru.simakov.support.DataProvider;
+import ru.simakov.support.IntegrationTestBase;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-@SuppressWarnings("PMD.JUnitTestsShouldIncludeAssert")
 class CustomerControllerTest extends IntegrationTestBase {
 
     @Test

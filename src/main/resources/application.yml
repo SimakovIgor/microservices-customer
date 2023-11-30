@@ -35,10 +35,10 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 
 rabbitmq:
+  queue:
+    notification: internal.exchange.queue
   exchanges:
     internal: internal.exchange
-  routing-keys:
-    internal-notification: internal.notification.rk
 
 logging:
   pattern:

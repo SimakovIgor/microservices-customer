@@ -9,6 +9,4 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQProperties {
     @Value("${rabbitmq.exchanges.internal}")
     private String internalExchange;
-    @Value("${rabbitmq.routing-keys.internal-notification}")
-    private String internalNotificationRoutingKey;
 }

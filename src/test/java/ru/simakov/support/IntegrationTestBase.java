@@ -1,4 +1,4 @@
-package ru.simakov.controller.support;
+package ru.simakov.support;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;

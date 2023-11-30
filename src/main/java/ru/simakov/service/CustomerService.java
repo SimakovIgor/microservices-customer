@@ -5,19 +5,16 @@ import org.springframework.stereotype.Service;
 import ru.simakov.clients.fraud.FraudWebClient;
 import ru.simakov.clients.notification.NotificationRequest;
 import ru.simakov.commons.model.internal.fraud.FraudCheckResponse;
-import ru.simakov.config.RabbitMQProperties;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.model.entity.Customer;
 import ru.simakov.repository.CustomerRepository;
-import ru.simakov.starter.amqp.config.RabbitMQMessageProducer;
 
 @Service
 @RequiredArgsConstructor
 public class CustomerService {
+    private final RabbitMqProducer rabbitMqProducer;
     private final CustomerRepository customerRepository;
     private final FraudWebClient fraudWebClient;
-    private final RabbitMQMessageProducer rabbitMQMessageProducer;
-    private final RabbitMQProperties rabbitMqProperties;
 
     private static Customer mapCustomer(final CustomerRegistrationRq customerRegistrationRq) {
         return Customer.builder()
@@ -45,8 +42,9 @@ public class CustomerService {
             throw new IllegalStateException("Customer %s is fraudster".formatted(customer.getId()));
         }
 
-        rabbitMQMessageProducer.publish(getNotificationRequest(customer),
-            rabbitMqProperties.getInternalExchange(), rabbitMqProperties.getInternalNotificationRoutingKey());
+        final NotificationRequest notificationRequest = getNotificationRequest(customer);
+        rabbitMqProducer.publishCustomerNotification(notificationRequest);
         return customer;
     }
+
 }

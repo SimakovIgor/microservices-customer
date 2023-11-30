@@ -1,4 +1,4 @@
-package ru.simakov.controller.support;
+package ru.simakov.support;
 
 import lombok.experimental.UtilityClass;
 import ru.simakov.model.dto.CustomerRegistrationRq;
