@@ -12,6 +12,7 @@
 
     <properties>
         <spring-cloud-contract.version>4.0.4</spring-cloud-contract.version>
+        <logbook-spring-boot-starter.version>3.6.0</logbook-spring-boot-starter.version>
     </properties>
 
     <parent>
@@ -37,7 +38,11 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.zalando</groupId>
+            <artifactId>logbook-spring-boot-starter</artifactId>
+            <version>${logbook-spring-boot-starter.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>

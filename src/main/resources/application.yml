@@ -41,6 +41,8 @@ rabbitmq:
     internal: internal.exchange
 
 logging:
+  level:
+    org.zalando.logbook: TRACE
   pattern:
     level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'
 
