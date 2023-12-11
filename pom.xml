@@ -12,7 +12,7 @@
 
     <properties>
         <spring-cloud-contract.version>4.0.4</spring-cloud-contract.version>
-        <logbook-spring-boot-starter.version>3.6.0</logbook-spring-boot-starter.version>
+        <logbook-spring-boot-starter.version>3.7.1</logbook-spring-boot-starter.version>
     </properties>
 
     <parent>
