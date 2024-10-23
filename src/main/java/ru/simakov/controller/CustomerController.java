@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import ru.simakov.model.dto.CustomerRegistrationRq;
 import ru.simakov.model.entity.Customer;
@@ -31,5 +32,10 @@ public class CustomerController {
     @GetMapping
     public void health() {
         log.info("health: " + LocalDateTime.now());
+    }
+
+    @GetMapping("/print")
+    public void testPageable(@RequestParam String status) {
+        customerService.printByStatus(status);
     }
 }

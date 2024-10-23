@@ -1,6 +1,8 @@
 package ru.simakov.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import ru.simakov.clients.fraud.FraudWebClient;
 import ru.simakov.clients.notification.NotificationRequest;
@@ -45,6 +47,21 @@ public class CustomerService {
         final NotificationRequest notificationRequest = getNotificationRequest(customer);
         rabbitMqProducer.publishCustomerNotification(notificationRequest);
         return customer;
+    }
+
+    public void printByStatus(String status) {
+        Page<Customer> byStatus;
+
+        Pageable pageable = Pageable.ofSize(2);
+        do {
+            byStatus = customerRepository.findAllByStatus(status, pageable);
+
+            for (Customer customer : byStatus.getContent()) {
+                System.out.println(customer);
+            }
+
+            pageable = byStatus.nextPageable();
+        } while (byStatus.hasNext());
     }
 
 }

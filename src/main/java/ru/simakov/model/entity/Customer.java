@@ -27,4 +27,5 @@ public class Customer extends BaseEntityCU {
     private String firstName;
     private String lastName;
     private String email;
+    private String status;
 }
